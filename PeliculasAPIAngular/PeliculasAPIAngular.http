@@ -1,0 +1,6 @@
+@PeliculasAPIAngular_HostAddress = http://localhost:5078
+
+GET {{PeliculasAPIAngular_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
