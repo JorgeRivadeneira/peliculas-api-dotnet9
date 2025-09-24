@@ -1,4 +1,9 @@
+using PeliculasAPIAngular;
+using PeliculasAPIAngular.Contratos;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 // Add services to the container.
 
@@ -13,6 +18,12 @@ builder.Services.AddOutputCache(options =>
 });
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddSingleton<IRepositorio, RepositorioEnMemoria>();
+
+builder.Services.AddTransient<ServicioTransient>();
+builder.Services.AddScoped<ServicioScoped>();
+builder.Services.AddSingleton<ServicioSingleton>();
 
 var app = builder.Build();
 

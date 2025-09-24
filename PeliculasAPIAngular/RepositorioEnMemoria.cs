@@ -1,8 +1,9 @@
-﻿using PeliculasAPIAngular.Entidades;
+﻿using PeliculasAPIAngular.Contratos;
+using PeliculasAPIAngular.Entidades;
 
 namespace PeliculasAPIAngular
 {
-    public class RepositorioEnMemoria
+    public class RepositorioEnMemoria : IRepositorio
     {
         private List<Genero> _generos;
 
@@ -23,6 +24,10 @@ namespace PeliculasAPIAngular
             return _generos;
         }
 
+        public void Crear(Genero genero)
+        {
+            _generos.Add(genero);
+        }
         public Genero? ObtenerGeneroPorId(int id)
         {
             return _generos.FirstOrDefault(g => g.Id == id);
